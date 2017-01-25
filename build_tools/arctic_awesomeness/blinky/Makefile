@@ -18,7 +18,8 @@ OBJCOPY=$(PREFIX)objcopy
 SIZE=$(PREFIX)size
 RM=rm -f
 
-TARGET=blinky
+NAME_FILE := ./proj_name
+TARGET := $(shell cat ${NAME_FILE})
 
 SRC=$(wildcard ../hal_source/*.c)
 SRC+=$(wildcard ../hal_source/CMSIS/*.c)
@@ -43,7 +44,7 @@ md5sums: all
 check: all
 	md5sum $(TARGET).elf > tmp && diff tmp user_app_md5sum && rm tmp
 load: all
-	./load_fw.sh $(OPENOCD_LOC) /usr/bin/ # The second argument here is the path to arm-none-eabi-gdb. This should really just be $(TOOLCHAIN) but Arch Linux throws a stupid libncurses.so error so we're just using the distro's shipped arm-none-eabi-gdb for the time being... :/
+	./load_fw.sh $(OPENOCD_LOC) /usr/bin/ TARGET
 
 clean:
 	$(RM) $(TARGET).srec $(TARGET).elf $(TARGET).bin $(TARGET).map $(OBJ) $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ)
