@@ -1,4 +1,3 @@
 target remote localhost:3333
-monitor halt
-monitor reset
+monitor reset halt
 load blinky.elf
