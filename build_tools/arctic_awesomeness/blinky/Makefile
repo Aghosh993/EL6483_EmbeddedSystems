@@ -5,8 +5,6 @@ TOOLCHAIN_ROOT=../../../../gcc-arm-none-eabi-5_4-2016q3
 TOOLCHAIN=$(TOOLCHAIN_ROOT)/bin/
 PREFIX=$(TOOLCHAIN)/arm-none-eabi-
 
-OPENOCD_LOC=/usr/bin
-
 ARCHFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I$(TOOLCHAIN_ROOT)/arm-none-eabi/include -fsingle-precision-constant 
 CFLAGS=-nostdlib -I../hal_include/ -I../user_include -I../user_include/hal_interface -I../hal_include/CMSIS -g -O2 -Wall
 LDFLAGS=--specs=nosys.specs -Wl,--gc-sections,-Map,$(TARGET).map,-Tlinker.ld
@@ -44,7 +42,7 @@ md5sums: all
 check: all
 	md5sum $(TARGET).elf > tmp && diff tmp user_app_md5sum && rm tmp
 load: all
-	./load_fw.sh $(OPENOCD_LOC) /usr/bin/ TARGET
+	./load_fw.sh $(TOOLCHAIN)
 
 clean:
 	$(RM) $(TARGET).srec $(TARGET).elf $(TARGET).bin $(TARGET).map $(OBJ) $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ)
