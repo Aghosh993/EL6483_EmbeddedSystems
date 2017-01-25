@@ -24,3 +24,4 @@ $PKG_MGR_CMD
 
 echo "Copying Udev rules to /etc/udev/rules.d/"
 cp *.rules /etc/udev/rules.d/
+udevadm control --reload-rules
