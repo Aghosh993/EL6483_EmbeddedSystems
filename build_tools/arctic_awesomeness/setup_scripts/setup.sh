@@ -25,6 +25,7 @@ $PKG_MGR_CMD
 echo "Downloading and extracting toolchain..."
 wget https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q3-update/+download/gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2
 tar xvf gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2 -C ../../../..
+rm gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2
 
 echo "Copying Udev rules to /etc/udev/rules.d/"
 cp *.rules /etc/udev/rules.d/
