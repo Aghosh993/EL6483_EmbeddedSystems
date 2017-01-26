@@ -14,12 +14,17 @@ more painful...
 Pre-requisites: git, GNU Make, Udev
 
 1) git clone https://github.com/Aghosh993/EL6483_EmbeddedSystems.git
+
 2) cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/setup_scripts/
+
 3) sudo ./setup.sh UBUNTU_LINUX (or ARCH_LINUX depending on O/S) [This may take a while. Go get a coffee...]
+
 4) cd ../f3_basic_app/
+
 5) make && make load
 
 6) ???
+
 7) PROFIT!!
 
 (c) Abhimanyu Ghosh, 2016
