@@ -1,4 +1,4 @@
-# STM32CubeF3-based software development repo for the STM32 F3 Discovery Board.
+# STM32Cube-based software development repo for the STM32 F3/F4 Discovery Boards.
 
 This build system is for use on Linux systems. Some distributions may need minor modifications.
 
@@ -26,5 +26,19 @@ Pre-requisites: git, GNU Make, Udev
 6) ???
 
 7) PROFIT!!
+
+===============================================================================================
+
+To make a new project with name "foo" (Assuming you've already done the setup step above):
+
+1) cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/ if not there already
+
+2) "./mkproject.sh foo f3" (for F3 Discovery) or "./mkproject.sh foo f4" (for F4 Discovery)
+
+3) cd foo/
+
+4) make && make load
+
+5) Done :) Enjoy!
 
 (c) Abhimanyu Ghosh, 2016
