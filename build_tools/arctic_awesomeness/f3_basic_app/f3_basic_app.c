@@ -72,8 +72,6 @@ int main()
 
 	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
-
 	/*
 		Loop indefinitely:
 	 */
