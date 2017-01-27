@@ -1,7 +1,6 @@
 /*
 	This is the main user software application
-	In this case, we have below the code necessary for a simple blinking LED program that toggles one of the LEDs on the
-	Discovery PCB at 1 Hz.
+	In this case, we have below the code necessary to toggle an LED on a STM32 F3 Discovery PCB at 1 Hz.
 
 	(c) Abhimanyu Ghosh, 2016
  */
