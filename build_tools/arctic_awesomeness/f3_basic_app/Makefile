@@ -6,7 +6,7 @@ TOOLCHAIN=$(TOOLCHAIN_ROOT)/bin/
 PREFIX=$(TOOLCHAIN)/arm-none-eabi-
 
 ARCHFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I$(TOOLCHAIN_ROOT)/arm-none-eabi/include -fsingle-precision-constant 
-CFLAGS=-nostdlib -I../f3_hal_include/ -I../user_include -I../user_include/hal_interface -I../f3_hal_include/CMSIS -g -O2 -Wall
+CFLAGS=-nostdlib -I../arch/stm32/f3/inc/ -I../arch/stm32/f3/inc/CMSIS -I../arch/stm32/f3/inc/Legacy -I../user_include -I../user_include/hal_interface -g -O2 -Wall
 LDFLAGS=--specs=nosys.specs -Wl,--gc-sections,-Map,$(TARGET).map,-Tlinker.ld
 LDFLAGS+=$(ARCHFLAGS)
 
@@ -19,9 +19,9 @@ RM=rm -f
 NAME_FILE := ./proj_name
 TARGET := $(shell cat ${NAME_FILE})
 
-SRC=$(wildcard ../f3_hal_source/*.c)
-SRC+=$(wildcard ../f3_hal_source/CMSIS/*.c)
-ASM_SRC=$(wildcard ../f3_hal_source/*.s)
+SRC=$(wildcard ../arch/stm32/f3/src/*.c)
+SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)
+ASM_SRC=$(wildcard ../arch/stm32/f3/src/*.s)
 USER_SRC=$(wildcard user_source/*.c)
 USER_SRC+=$(wildcard user_source/hal_interface/*.c)
 NEWLIB_ASM_SRC=$(wildcard user_source/*.s)

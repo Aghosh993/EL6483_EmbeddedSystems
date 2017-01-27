@@ -8,11 +8,18 @@
 
 #include "stm32f3xx_hal.h"
 
+/*
+	A simple error handler that just blocks indefinitely until a HW reset:
+ */
+
 static void Error_Handler(void)
 {
 	while(1);
 }
 
+/*
+	Set up system PLL and derived clocks. This is taken from ST example code.
+ */
 static void SystemClock_Config(void)
 {
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
@@ -43,6 +50,11 @@ static void SystemClock_Config(void)
   }
 }
 
+ 
+/*
+	A simple main application that blinks an LED at a configurable frequency:
+ */
+
 int main()
 {
 	static GPIO_InitTypeDef  GPIO_InitStruct;
@@ -62,17 +74,15 @@ int main()
 
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
 
-	
-
 	/*
 		Loop indefinitely:
 	 */
 	while(1)
 	{
 		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_8);
-		HAL_Delay(150);
+		HAL_Delay(500);
 		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_8);
-		HAL_Delay(150);
+		HAL_Delay(500);
 	}
 
 	return 0; // We should never get here...
