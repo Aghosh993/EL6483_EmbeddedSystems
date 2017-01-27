@@ -26,3 +26,4 @@ cp -r $BASE_PROJ_NAME $PROJ_NAME
 mv $PROJ_NAME/$BASE_PROJ_NAME.c $PROJ_NAME/$PROJ_NAME.c
 echo $PROJ_NAME > $PROJ_NAME/proj_name
 sed -i "s/$BASE_PROJ_NAME/$PROJ_NAME/g" $PROJ_NAME/runme.gdb
+sed -i "s/$BASE_PROJ_NAME/$PROJ_NAME/g" $PROJ_NAME/Makefile

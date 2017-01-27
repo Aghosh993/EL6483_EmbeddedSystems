@@ -16,8 +16,7 @@ OBJCOPY=$(PREFIX)objcopy
 SIZE=$(PREFIX)size
 RM=rm -f
 
-NAME_FILE := ./proj_name
-TARGET := $(shell cat ${NAME_FILE})
+TARGET=f3_basic_app
 
 SRC=$(wildcard ../arch/stm32/f3/src/*.c)
 SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)
