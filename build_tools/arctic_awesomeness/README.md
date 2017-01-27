@@ -27,7 +27,7 @@ Pre-requisites: git, GNU Make, Udev
 
 7) PROFIT!!
 
-===============================================================================================
+# Creating a new local project:
 
 To make a new project with name "foo" (Assuming you've already done the setup step above):
 
