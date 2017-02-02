@@ -6,7 +6,7 @@ TOOLCHAIN=$(TOOLCHAIN_ROOT)/bin/
 PREFIX=$(TOOLCHAIN)/arm-none-eabi-
 
 ARCHFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I$(TOOLCHAIN_ROOT)/arm-none-eabi/include -fsingle-precision-constant 
-CFLAGS=-nostdlib -I../arch/stm32/f3/inc/ -I../arch/stm32/f3/inc/CMSIS -I../arch/stm32/f3/inc/Legacy -I../user_include -I../user_include/hal_interface -g -O2 -Wall
+CFLAGS=-nostdlib -I../arch/stm32/f3/inc/ -I../arch/stm32/f3/inc/CMSIS -I../arch/stm32/f3/inc/Legacy -I./user_include -I./user_include/hal_interface -g -O2 -Wall
 LDFLAGS=--specs=nosys.specs -Wl,--gc-sections,-Map,$(TARGET).map,-Tlinker.ld
 LDFLAGS+=$(ARCHFLAGS)
 
