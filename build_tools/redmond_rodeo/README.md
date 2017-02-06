@@ -6,7 +6,7 @@ Head over to https://msys2.github.io/ and download the appropriate installer.
 
 Once the installer downloads, launch it. Just do a default installation, clicking "next" until you're done.
 
-Once the installation is complete, download the ST-Link utility from http://www.st.com/en/embedded-software/stsw-link004.html
+Once the installation is complete, download the ST-Link utility from http://www.st.com/en/embedded-software/stsw-link004.html. Click "Get software" at the top, and "Get software" under the "Order from ST" column at the bottom of the page.
 
 (You may have to provide and verify your name/email for this stage. In that case a download link will be emailed to you be ST)
 
@@ -18,13 +18,13 @@ Unzip this archive, and move the resulting folder to some directory on your mach
 
 Now, go to https://github.com/Aghosh993/EL6483_EmbeddedSystems and download the repository as a Zip file by selecting "Clone or Download" -> "Download ZIP"
 
-Extract the resultant folder, also placing it in C:\Users\some_user\sandbox
+Extract the resultant folder to "C:\Users\some_user\sandbox" when prompted to tell the unzip utility where to extract to (under "Files will be extraced to this folder:"). There should now be a "EL6483_EmbeddedSystems-master" folder within the sandbox folder. Rename it so there is no "-master" on the end.
 
 Now, launch the MSYS Shell. Go to the Start menu, type "msys". The "MSYS2 MinGW 32-bit" option should pop up. Click it, and the shell will launch.
 
-First, we will use the built-in package manager to update the system. Type "pacman -Syu" Once the update is finished, you will be prompted to exit. Just close the window, and click "OK" if warned that a process is still running. Re-launch the Msys shell as mentioned before.
+First, we will use the built-in package manager to update the system. Type "pacman -Syu". If prompted to allow installation, type Y" and then press Enter. Once the update is finished, you will be prompted to exit. Just close the window, and click "OK" if warned that a process is still running. Re-launch the Msys shell as mentioned before.
 
-Once at the shell, type: "pacman -S make". Once the command finishes and returns to the prompt, type: "cd C:\Users" then type: "cd some_user/sandbox/EL6483_EmbeddedSystems/build_tools/arctic_awesomeness".
+Once at the shell, type: "pacman -S make". If prompted to allow installation, type Y" and then press Enter. Once the command finishes and returns to the prompt, type: "cd C:\Users" then type: "cd some_user/sandbox/EL6483_EmbeddedSystems/build_tools/arctic_awesomeness".
 
 Now, you should be able to auto-create a new project. Type: "./mkproject.sh test f3" (for F3 discovery) or "./mkproject.sh test f4" for the F4 Discovery board. This will automatically create a new project in a sub-folder called "test" with the necessary Makefile and source code.
 
