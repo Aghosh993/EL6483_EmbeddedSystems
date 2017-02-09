@@ -6,7 +6,7 @@ Tested distros: Arch Linux, Xubuntu, Ubuntu
 
 Errata 1: (IMPORTANT FOR UBUNTU 64-bit USERS)
 
-In order to run the toolchain on 64-bit Ubuntu, you must install the "libc6-i386" package from the repository, using "sudo apt-get install libc6-i386". See http://askubuntu.com/questions/133389/no-such-file-or-directory-but-the-file-exists for details.
+In order to run the toolchain on 64-bit Ubuntu, you must install the "libc6-i386" and "libncurses5:i386" packages from the apt repository, using "sudo apt-get install libc6-i386 libncurses5:i386". See http://askubuntu.com/questions/133389/no-such-file-or-directory-but-the-file-exists for details.
 
 Errata 2: On Arch Linux, the "lib32-ncurses5-compat-libs" and "ncurses5-compat-libs" packages may need to be installed from the AUR in order
 to resolve the fact that Arch has moved to ncurses 6 while the ARM-none toolchain is still by default compiled against ncurses-5.
