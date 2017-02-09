@@ -15,7 +15,7 @@ if [ "$1" = "ARCH_LINUX" ]; then
 	PKG_MGR_CMD="pacman -Sy "$DEPENDENCY_PKGS
 else
 	if [ "$1" = "UBUNTU_LINUX" ]; then
-		PKG_MGR_CMD="apt-get install "$DEPENDENCY_PKGS
+		PKG_MGR_CMD="apt-get install libusb-1.0.0-dev libncurses5:i386 "$DEPENDENCY_PKGS
 	else
 		echo "ERROR, unsupported distro! Must install packages manually!"
 	fi
