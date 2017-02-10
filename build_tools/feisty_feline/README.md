@@ -1,8 +1,6 @@
 # STM32Cube-based software development repo for the STM32 F3/F4 Discovery Boards.
 
-This build system is for use on Linux systems. Some distributions may need minor modifications.
-
-Tested distros: Arch Linux, Xubuntu, Ubuntu
+This build system is for use on Mac OS X systems. Before installing this system, you will need to ensure that you have installed Apple's "Developer Tools". See http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/ for a guide on how to install the Developer Tools package. Please make sure to install the UNIX Command-Line tools and utilities such as "make", "git" and "gcc".
 
 ## Known issues:
 
@@ -23,8 +21,6 @@ in procedure 'ocd_bouncer'
 If you get something like this output, open the file called "stm32f3discovery.cfg" in a text editor. Find the line that says "source [find interface/stlink-v2.cfg]" and change it to "source [find interface/stlink-v2-1.cfg]", or vice-versa, if you have the older ST-Link on your board.
 
 ## Quickstart guide to flash firmware onto the STM32 Discovery in 7 commands:
-
-Pre-requisites: git, GNU Make, Udev
 
 1) 
 
