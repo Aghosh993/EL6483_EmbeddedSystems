@@ -38,7 +38,11 @@ Pre-requisites: git, GNU Make, Udev
 
 3) sudo ./setup.sh UBUNTU_LINUX (or ARCH_LINUX depending on O/S) [This may take a while. Go get a coffee...]
 
-4) cd ../f3_basic_app/
+4) cd ..
+
+5) ./mkproject.sh test f3 (to make an F3 Discovery project) or ./mkproject.sh test f4 (for F4 Discovery)
+
+4) cd test
 
 5) make && make load
 
