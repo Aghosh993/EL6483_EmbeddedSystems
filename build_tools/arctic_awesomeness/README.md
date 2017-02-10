@@ -6,15 +6,15 @@ Tested distros: Arch Linux, Xubuntu, Ubuntu
 
 ## Known issues:
 
-Issue 1: (IMPORTANT FOR UBUNTU 64-bit USERS)
+**Issue 1:** (IMPORTANT FOR UBUNTU 64-bit USERS)
 
 In order to run the toolchain on 64-bit Ubuntu, you must install the "libc6-i386" and "libncurses5:i386" packages from the apt repository, using "sudo apt-get install libc6-i386 libncurses5:i386". See http://askubuntu.com/questions/133389/no-such-file-or-directory-but-the-file-exists for details.
 
-Issue 2: On Arch Linux, the "lib32-ncurses5-compat-libs" and "ncurses5-compat-libs" packages may need to be installed from the AUR in order to resolve the fact that Arch has moved to ncurses 6 while the ARM-none toolchain is still by default compiled against ncurses-5.
+**Issue 2:** On Arch Linux, the "lib32-ncurses5-compat-libs" and "ncurses5-compat-libs" packages may need to be installed from the AUR in order to resolve the fact that Arch has moved to ncurses 6 while the ARM-none toolchain is still by default compiled against ncurses-5.
 
 The other more painful alternative is re-compiling the arm-none-eabi toolchain from source against the new ncurses, but this is decidedly more painful...
 
-Issue 3: On some newer STM32 F3 boards, there is a new version of the ST-Link (V2-1). The symptom of the issue will be that when you attempt to "make load" you will get the following output or something similar:
+**Issue 3:** On some newer STM32 F3 boards, there is a new version of the ST-Link (V2-1). The symptom of the issue will be that when you attempt to "make load" you will get the following output or something similar:
 
 ```bash
 Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
