@@ -28,7 +28,7 @@ in procedure 'ocd_bouncer'
 
 If you get something like this output, open the file called "stm32f3discovery.cfg" in a text editor. Find the line that says "source [find interface/stlink-v2.cfg]" and change it to "source [find interface/stlink-v2-1.cfg]"
 
-## Quickstart guide to flash firmware onto the STM32 Discovery in 5 commands:
+## Quickstart guide to flash firmware onto the STM32 Discovery in 7 commands:
 
 Pre-requisites: git, GNU Make, Udev
 
@@ -42,13 +42,13 @@ Pre-requisites: git, GNU Make, Udev
 
 5) ./mkproject.sh test f3 (to make an F3 Discovery project) or ./mkproject.sh test f4 (for F4 Discovery)
 
-4) cd test
+6) cd test
 
-5) make && make load
+7) make && make load
 
-6) ???
+8) ???
 
-7) PROFIT!!
+9) PROFIT!!
 
 ## Creating a new local project:
 
