@@ -4,14 +4,29 @@ This build system is for use on Linux systems. Some distributions may need minor
 
 Tested distros: Arch Linux, Xubuntu, Ubuntu
 
-Errata 1: (IMPORTANT FOR UBUNTU 64-bit USERS)
+## Known issues:
+
+Issue 1: (IMPORTANT FOR UBUNTU 64-bit USERS)
 
 In order to run the toolchain on 64-bit Ubuntu, you must install the "libc6-i386" and "libncurses5:i386" packages from the apt repository, using "sudo apt-get install libc6-i386 libncurses5:i386". See http://askubuntu.com/questions/133389/no-such-file-or-directory-but-the-file-exists for details.
 
-Errata 2: On Arch Linux, the "lib32-ncurses5-compat-libs" and "ncurses5-compat-libs" packages may need to be installed from the AUR in order
-to resolve the fact that Arch has moved to ncurses 6 while the ARM-none toolchain is still by default compiled against ncurses-5.
-The other more painful alternative is re-compiling the arm-none-eabi toolchain from source against the new ncurses, but this is decidedly 
-more painful...
+Issue 2: On Arch Linux, the "lib32-ncurses5-compat-libs" and "ncurses5-compat-libs" packages may need to be installed from the AUR in order to resolve the fact that Arch has moved to ncurses 6 while the ARM-none toolchain is still by default compiled against ncurses-5.
+
+The other more painful alternative is re-compiling the arm-none-eabi toolchain from source against the new ncurses, but this is decidedly more painful...
+
+Issue 3: On some newer STM32 F3 boards, there is a new version of the ST-Link (V2-1). The symptom of the issue will be that when you attempt to "make load" you will get the following output or something similar:
+
+Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
+none separate
+srst_only separate srst_nogate srst_open_drain connect_deassert_srst
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : Unable to match requested speed 1000 kHz, using 950 kHz
+Info : clock speed 950 kHz
+Error: open failed
+in procedure 'init' 
+in procedure 'ocd_bouncer'
+
+If you get something like this output, open the file called "stm32f3discovery.cfg" in a text editor. Find the line that says "source [find interface/stlink-v2.cfg]" and change it to "source [find interface/stlink-v2-1.cfg]"
 
 ## Quickstart guide to flash firmware onto the STM32 Discovery in 5 commands:
 
@@ -31,7 +46,9 @@ Pre-requisites: git, GNU Make, Udev
 
 7) PROFIT!!
 
-# Creating a new local project:
+## Creating a new local project:
+
+PLEASE ALWAYS CREATE A NEW PROJECT USING THIS PROCEDURE!! This helps make sure the core repository contents (example apps and other code) are untouched, and you do all development work separate from the tracked files on this Git repository.
 
 To make a new project with name "foo" (Assuming you've already done the setup step above):
 
