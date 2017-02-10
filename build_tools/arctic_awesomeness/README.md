@@ -34,19 +34,51 @@ If you get something like this output, open the file called "stm32f3discovery.cf
 
 Pre-requisites: git, GNU Make, Udev
 
-1) git clone https://github.com/Aghosh993/EL6483_EmbeddedSystems.git
+1) 
 
-2) cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/setup_scripts/
+```bash
+git clone https://github.com/Aghosh993/EL6483_EmbeddedSystems.git
+```
 
-3) sudo ./setup.sh UBUNTU_LINUX (or ARCH_LINUX depending on O/S) [This may take a while. Go get a coffee...]
+2) 
 
-4) cd ..
+```bash
+cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/setup_scripts/
+```
 
-5) ./mkproject.sh test f3 (to make an F3 Discovery project) or ./mkproject.sh test f4 (for F4 Discovery)
+3) 
 
-6) cd test
+```bash
+sudo ./setup.sh UBUNTU_LINUX 
+```
 
-7) make && make load
+(or ARCH_LINUX depending on O/S) [This may take a while. Go get a coffee...]
+
+4) 
+
+```bash
+cd ..
+```
+
+5) 
+
+```bash
+./mkproject.sh test f3
+```
+
+(Use "f3" make an F3 Discovery project, or "f4" for the F4 Discovery)
+
+6) 
+
+```bash
+cd test
+```
+
+7) 
+
+```bash
+make && make load
+```
 
 8) ???
 
@@ -58,14 +90,34 @@ PLEASE ALWAYS CREATE A NEW PROJECT USING THIS PROCEDURE!! This helps make sure t
 
 To make a new project with name "foo" (Assuming you've already done the setup step above):
 
-1) cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/ if not there already
+1) 
 
-2) "./mkproject.sh foo f3" (for F3 Discovery) or "./mkproject.sh foo f4" (for F4 Discovery)
+(If not there already:)
 
-3) cd foo/
+```bash
+cd EL6483_EmbeddedSystems/build_tools/arctic_awesomeness/
+```
 
-4) make && make load
+2)
+
+```bash
+./mkproject.sh test f3
+```
+
+(Use "f3" make an F3 Discovery project, or "f4" for the F4 Discovery)
+
+3) 
+
+```bash
+cd foo/
+```
+
+4) 
+
+```bash
+make && make load
+```
 
 5) Done :) Enjoy!
 
-(c) Abhimanyu Ghosh, 2016
+(c) Abhimanyu Ghosh, 2017
