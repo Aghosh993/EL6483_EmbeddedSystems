@@ -18,23 +18,14 @@ Issue 3: On some newer STM32 F3 boards, there is a new version of the ST-Link (V
 
 ```bash
 Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
-
 none separate
-
 srst_only separate srst_nogate srst_open_drain connect_deassert_srst
-
 Info : Unable to match requested speed 1000 kHz, using 950 kHz
-
 Info : Unable to match requested speed 1000 kHz, using 950 kHz
-
 Info : clock speed 950 kHz
-
 Error: open failed
-
 in procedure 'init' 
-
 in procedure 'ocd_bouncer'
-
 ```
 
 If you get something like this output, open the file called "stm32f3discovery.cfg" in a text editor. Find the line that says "source [find interface/stlink-v2.cfg]" and change it to "source [find interface/stlink-v2-1.cfg]"
