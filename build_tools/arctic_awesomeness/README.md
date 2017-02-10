@@ -16,6 +16,7 @@ The other more painful alternative is re-compiling the arm-none-eabi toolchain f
 
 Issue 3: On some newer STM32 F3 boards, there is a new version of the ST-Link (V2-1). The symptom of the issue will be that when you attempt to "make load" you will get the following output or something similar:
 
+```bash
 Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
 
 none separate
@@ -33,6 +34,8 @@ Error: open failed
 in procedure 'init' 
 
 in procedure 'ocd_bouncer'
+
+```
 
 If you get something like this output, open the file called "stm32f3discovery.cfg" in a text editor. Find the line that says "source [find interface/stlink-v2.cfg]" and change it to "source [find interface/stlink-v2-1.cfg]"
 
