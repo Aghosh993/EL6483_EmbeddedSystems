@@ -74,7 +74,7 @@ make && make load
 
 PLEASE ALWAYS CREATE A NEW PROJECT USING THIS PROCEDURE!! This helps make sure the core repository contents (example apps and other code) are untouched, and you do all development work separate from the tracked files on this Git repository.
 
-To make a new project with name "foo" (Assuming you've already done the setup step above):
+To make a new project with name "test" (Assuming you've already done the setup step above):
 
 1) 
 
@@ -95,7 +95,7 @@ cd EL6483_EmbeddedSystems/build_tools/feisty_feline/
 3) 
 
 ```bash
-cd foo/
+cd test/
 ```
 
 4) 
