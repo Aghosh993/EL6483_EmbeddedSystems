@@ -44,7 +44,7 @@ static void SystemClock_Config(void)
 
 void cpu_init(void)
 {
-	HAL_Init();
+	// HAL_Init();
 	SystemClock_Config();
 }
 
