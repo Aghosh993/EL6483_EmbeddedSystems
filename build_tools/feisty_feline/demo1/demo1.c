@@ -43,11 +43,13 @@ int main()
     {
       board_led_on(LED1);
       board_led_off(LED2);
+      board_led_off(LED3);
 
       cpu_sw_delay(50U);  // Invoke a simple software busy-wait routine to delay approximately 50 milliseconds
 
       board_led_off(LED1);
       board_led_on(LED2);
+      board_led_on(LED3);
 
       cpu_sw_delay(50U);
 
