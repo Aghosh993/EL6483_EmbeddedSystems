@@ -16,7 +16,7 @@ OBJCOPY=$(PREFIX)objcopy
 SIZE=$(PREFIX)size
 RM=rm -f
 
-TARGET=f3_basic_app
+TARGET=assembly_blink
 
 SRC=$(wildcard ../arch/stm32/f3/src/*.c)
 SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)
