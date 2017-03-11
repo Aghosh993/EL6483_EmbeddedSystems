@@ -1,5 +1,5 @@
 /* Entry Point = reset NMI handler */
-ENTRY(Reset_Handler)
+ENTRY(main)
 
 /* Top of stack */
 _estack = 0x20009FFF;    /* RAM end */
