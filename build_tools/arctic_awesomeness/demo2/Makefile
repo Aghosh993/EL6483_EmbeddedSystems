@@ -16,7 +16,7 @@ OBJCOPY=$(PREFIX)objcopy
 SIZE=$(PREFIX)size
 RM=rm -f
 
-TARGET=uart_demo
+TARGET=demo2
 
 SRC=$(wildcard ../arch/stm32/f3/src/*.c)
 SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)
@@ -24,13 +24,17 @@ ASM_SRC=$(wildcard ../arch/stm32/f3/src/*.s)
 ASM_SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.s)
 USER_SRC=$(wildcard user_source/*.c)
 USER_SRC+=$(wildcard user_source/hal_interface/*.c)
-NEWLIB_ASM_SRC=$(wildcard user_source/*.s)
+USER_ASM_SRC=$(wildcard user_source/*.s)
 
 OBJ=$(patsubst %.c, %.o, $(SRC))
 ASM_OBJS=$(patsubst %.s, %.o, $(ASM_SRC))
 TARGET_OBJ=$(TARGET).o
 USER_OBJ=$(patsubst %.c, %.o, $(USER_SRC))
-NEWLIB_ASM_OBJ=$(patsubst %.s, %.o, $(NEWLIB_ASM_SRC))
+USER_ASM_OBJ=$(patsubst %.s, %.o, $(USER_ASM_SRC))
+
+DEPS:=$(OBJ:.o=.d)
+DEPS+=$(TARGET_OBJ:.o=.d)
+DEPS+=$(USER_OBJ:.o=.d)
 
 all: build size
 build: elf srec bin 
@@ -45,16 +49,19 @@ load: all
 	./load_fw.sh $(TOOLCHAIN)
 
 clean:
-	$(RM) $(TARGET).srec $(TARGET).elf $(TARGET).bin $(TARGET).map $(OBJ) $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ)
+	$(RM) $(TARGET).srec $(TARGET).elf $(TARGET).bin $(TARGET).map $(OBJ) $(ASM_OBJS) $(USER_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ) $(DEPS)
+
+$(TARGET).elf: $(ASM_OBJS) $(USER_ASM_OBJ) $(OBJ) $(TARGET_OBJ) $(USER_OBJ)
+	$(LD) $(LDFLAGS) -o $@ $(OBJ) $(ASM_OBJS) $(USER_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ) -lm -lc
 
 %.o: %.s
 	$(CC) -c $(ARCHFLAGS) $(CFLAGS) -o $@ $<
 
-%.o: %.c
-	$(CC) -c $(ARCHFLAGS) $(CFLAGS) -o $@ $<
+-include $(DEPS)
 
-$(TARGET).elf: $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(OBJ) $(TARGET_OBJ) $(USER_OBJ)
-	$(LD) $(LDFLAGS) -o $@ $(OBJ) $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(TARGET_OBJ) $(USER_OBJ) -lm -lc
+%.o: %.c
+	$(CC) $(ARCHFLAGS) $(CFLAGS) -MM -MT $@ -MF $(patsubst %.o,%.d,$@) $<
+	$(CC) $(ARCHFLAGS) $(CFLAGS) -c -o $@ $<
 
 %.srec: %.elf
 	$(OBJCOPY) -O srec $< $@
@@ -64,3 +71,5 @@ $(TARGET).elf: $(ASM_OBJS) $(NEWLIB_ASM_OBJ) $(OBJ) $(TARGET_OBJ) $(USER_OBJ)
 
 size: $(TARGET).elf
 	$(SIZE) $(TARGET).elf
+
+.PHONY: clean

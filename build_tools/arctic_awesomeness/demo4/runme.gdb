@@ -1,3 +1,3 @@
 target remote localhost:3333
 monitor reset halt
-load uart_demo.elf
+load demo4.elf
