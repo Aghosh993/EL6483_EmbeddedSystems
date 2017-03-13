@@ -16,7 +16,7 @@ OBJCOPY=$(PREFIX)objcopy
 SIZE=$(PREFIX)size
 RM=rm -f
 
-TARGET=asm_fibonacci
+TARGET=demo5
 
 SRC=$(wildcard ../arch/stm32/f3/src/*.c)
 SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)

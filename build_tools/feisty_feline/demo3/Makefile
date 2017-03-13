@@ -6,7 +6,7 @@ TOOLCHAIN=$(TOOLCHAIN_ROOT)/bin/
 PREFIX=$(TOOLCHAIN)/arm-none-eabi-
 
 ARCHFLAGS=-mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I$(TOOLCHAIN_ROOT)/arm-none-eabi/include -fsingle-precision-constant 
-CFLAGS=-nostdlib -I../arch/stm32/f3/inc/ -I../arch/stm32/f3/inc/CMSIS -I../arch/stm32/f3/inc/Legacy -I./user_include -I./user_include/hal_interface -g -O2 -Wall
+CFLAGS=-nostdlib -I../../arctic_awesomeness/arch/stm32/f3/inc/ -I../../arctic_awesomeness/arch/stm32/f3/inc/CMSIS -I../../arctic_awesomeness/arch/stm32/f3/inc/Legacy -I./user_include -I./user_include/hal_interface -g -O2 -Wall
 LDFLAGS=--specs=nosys.specs -Wl,--gc-sections,-Map,$(TARGET).map,-Tlinker.ld
 LDFLAGS+=$(ARCHFLAGS)
 
@@ -18,10 +18,10 @@ RM=rm -f
 
 TARGET=demo3
 
-SRC=$(wildcard ../arch/stm32/f3/src/*.c)
-SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.c)
-ASM_SRC=$(wildcard ../arch/stm32/f3/src/*.s)
-ASM_SRC+=$(wildcard ../arch/stm32/f3/src/CMSIS/*.s)
+SRC=$(wildcard ../../arctic_awesomeness/arch/stm32/f3/src/*.c)
+SRC+=$(wildcard ../../arctic_awesomeness/arch/stm32/f3/src/CMSIS/*.c)
+ASM_SRC=$(wildcard ../../arctic_awesomeness/arch/stm32/f3/src/*.s)
+ASM_SRC+=$(wildcard ../../arctic_awesomeness/arch/stm32/f3/src/CMSIS/*.s)
 USER_SRC=$(wildcard user_source/*.c)
 USER_SRC+=$(wildcard user_source/hal_interface/*.c)
 USER_ASM_SRC=$(wildcard user_source/*.s)
