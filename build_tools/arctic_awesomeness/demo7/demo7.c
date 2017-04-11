@@ -39,6 +39,8 @@ int main()
   
   printf("Hello World!!\r\n");
 
+  int led_command = 0;
+
   /*
     In an infinite loop, keep toggling the LEDs in an alternating pattern:
    */
@@ -57,17 +59,38 @@ int main()
     }
     else
     {
-      board_led_on(LED1);
-      board_led_off(LED2);
+      printf("Enter a number to command LED1 and LED2. Choices:\r\n");
+      printf("0: LED1, LED2 OFF\r\n");
+      printf("1: LED1 ON, LED2 OFF\r\n");
+      printf("2: LED1 OFF, LED2 ON\r\n");
+      printf("3: LED1, LED2 ON\r\n");
 
-      cpu_sw_delay(50U);  // Invoke a simple software busy-wait routine to delay approximately 50 milliseconds
+      scanf("%d", &led_command);
 
-      board_led_off(LED1);
-      board_led_on(LED2);
-
-      cpu_sw_delay(50U);
-
-      ++i; // Increment i for the next test iteration...
+      switch(led_command)
+      {
+        case 0:
+          board_led_off(LED1);
+          board_led_off(LED2);
+          break;
+        case 1:
+          board_led_on(LED1);
+          board_led_off(LED2);
+          break;
+        case 2:
+          board_led_off(LED1);
+          board_led_on(LED2);
+          break;
+        case 3:
+          board_led_on(LED1);
+          board_led_on(LED2);
+          break;
+        default:
+          printf("ERROR: Invalid Command!!\r\n");
+          board_led_off(LED1);
+          board_led_off(LED2);
+          break;
+      }
     }
   }
 
