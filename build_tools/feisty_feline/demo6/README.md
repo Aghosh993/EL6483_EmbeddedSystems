@@ -1,0 +1,5 @@
+# Demo 6: PWM on the STM32 F3 Discovery
+
+This example shows how to use two of the LEDs (LD3 and LD7) connected to PE9 and PE11 on the STM32 F3 Discovery. A 1 kHz PWM signal is output via the two pins, which allows control of the brightness of LEDs LD3 and LD7 on the board. The LEDs are set up appropriately in the pwm_hal.c file, and the necessary low-level GPIO and clock resource utilization is set up in the "cube_hal_msp.c" file, where certain functions are defined to override the weak default declarations in STMicroelectronics' Cube HAL API. Please refer to the documentation in the comments at the top of the "stm32f3xx_hal_tim.c" file within arch/stm3/f3/src directory in this repository for a full explanation of how the MspInit functions in the "cube_hal_msp.c" file work and what the purpose of this code layout is.
+
+(c) Abhimanyu Ghosh, 2017

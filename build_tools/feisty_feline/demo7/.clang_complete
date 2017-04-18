@@ -1,0 +1,5 @@
+-Iuser_include
+-Iuser_include/hal_interface
+-I../arch/stm32/f3/inc
+-I../arch/stm32/f3/inc/CMSIS
+-I../arch/stm32/f3/inc/Legacy
