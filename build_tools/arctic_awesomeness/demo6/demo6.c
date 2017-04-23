@@ -8,18 +8,18 @@
 // C standard include(s):
 #include <math.h>
 
-// Custom user APIs needed for hardware access specific to this board:
+// Custom user APIs needed for hardware access specific to this board: 
 #include "cpu.h"
 #include "board_led.h"
 #include "pwm_hal.h"
 
-// Custom user APIs needed for generic algorithmic libraries that are hardware-independent:
+// Custom user APIs needed for generic algorithmic libraries that are hardware-independent: 
 #include "foo.h"
 
 int main()
 {
   /*
-    Initialize the PLL, clock tree to all peripherals, flash and Systick 1 ms time reference:
+    Initialize the PLL, clock tree to all peripherals, flash and Systick 1 ms time reference: 
    */
   cpu_init();
 
